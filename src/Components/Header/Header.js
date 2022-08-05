@@ -1,15 +1,13 @@
 import React from "react";
 import { Container, Nav, Navbar } from "react-bootstrap";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { Link } from "react-router-dom";
-// import useAuth from "../Hooks/useAuth";
+import logo from "../../logo.png";
+import auth from "../Firebase/firebase.initilize";
+import { signOut } from "firebase/auth";
 
-import logo from '../../logo.png';
 const Header = () => {
-//  const user = 5
-//  const signOutUser = 5
-  // const { user, signOutUser } = useAuth();
-  // console.log(user, ' user from header');
- 
+  const [user] = useAuthState(auth);
   return (
     <>
       <Navbar
@@ -48,7 +46,7 @@ const Header = () => {
                 BLOG
               </Link>
             </Nav>
-            {/* {user.email && ( */}
+            {user?.email && (
               <Nav>
                 <Link
                   className="text-white text-decoration-none p-3"
@@ -57,26 +55,28 @@ const Header = () => {
                   Members
                 </Link>
               </Nav>
-            {/* )} */}
-            {/* {user.email ? ( */}
+            )}
+            {user?.email ? (
               <Nav>
-                <button
-                  className="text-dark text-decoration-none p-3"
-                  // onClick={signOutUser}
+                <Link
+                to="/"
+                  className=" text-white fs-5 text-decoration-none p-3"
+                  onClick={() => signOut(auth)}
                 >
                   Log Out
-                </button>
+                </Link>
               </Nav>
-            {/* ) : ( */}
+            ) : (
               <Nav>
                 <Link
                   className="text-white text-decoration-none p-3"
                   to="/signup"
                 >
+                  {user?.email}
                   Sign Up
                 </Link>
               </Nav>
-            {/* )} */}
+            )}
           </Navbar.Collapse>
         </Container>
       </Navbar>

@@ -12,9 +12,8 @@ export default function Members() {
       .then((data) => setMembers(data));
   }, []);
    
-  // data.map(d=>console.log(d))
   return (
-    <div className="my-5">
+    <div className="my-5 mx-auto w-75">
       <h2 className="text-center my-5">CLUB MEMBERS</h2>
 
       <table class="table table-striped">

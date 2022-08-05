@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Carousel, Spinner } from "react-bootstrap";
+import { Carousel } from "react-bootstrap";
 import "./slider.css";
 const Slider = (props) => {
   const [sliderData, setSliderData] = useState([]);
@@ -10,7 +10,7 @@ const Slider = (props) => {
   }, []);
 
   return (
-    <>
+    <div style={{height: '100%'}}>
       <div className="slider-text text-center">
         <h1 className="slider-title"> Welcome to prime University</h1>
         <h1 className="slider-title"> Computer Programming Club </h1>
@@ -26,7 +26,7 @@ const Slider = (props) => {
           </Carousel.Item>
         ))}
       </Carousel>
-    </>
+    </div>
   );
 };
 export default Slider;

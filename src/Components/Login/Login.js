@@ -1,12 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import useAuth from "../Hooks/useAuth";
-// import { useAuth } from "../Hooks/useAuth";
+import {signInWithEmailAndPassword } from "firebase/auth";
+import auth from "../Firebase/firebase.initilize";
+import { useAuthState } from "react-firebase-hooks/auth";
+
 export default function Login() {
   const [loginuser, setloginuser] = useState();
-  const [isValidUser, setIsValidUser] = useState(false);
+   const [user] = useAuthState(auth);
   const navigate = useNavigate();
-   
+
   const handleChange = (e) => {
     const field = e.target.name;
     const value = e.target.value;
@@ -18,6 +20,7 @@ export default function Login() {
    
   const handleOnClick = (e) => {
     e.preventDefault();
+     signInWithEmailAndPassword(auth, loginuser.email, loginuser.password);
     fetch(`http://localhost:8000/login/`, {
       method: "POST",
       headers: {
@@ -27,21 +30,14 @@ export default function Login() {
     })
       .then((res) => res.json())
       .then((data) => {
-        if (data.message) {
-          setIsValidUser(true);
-          
-        } else {
-          setIsValidUser(false);
-        }
+       console.log("");
       });
   };
-  useEffect(() => {
-    if (isValidUser) {
-      return navigate("/");
-    }
-  }, []);
+ if (user) {
+   navigate("/home");
+ } 
   return (
-    <div className="d-flex justify-content-center my-5">
+    <div className="d-flex justify-content-center my-5" style={{height: "450px"}}>
       <div>
         <h2 className="mt-3">Please Login here</h2>
         <form>
@@ -71,10 +67,10 @@ export default function Login() {
             Log In
           </button>
         </form>
-
-        <p>
+         <p>
           Don't have an account ? <Link to="/signup">Register</Link>
-        </p>
+        </p> 
+        
       </div>
     </div>
   );

@@ -12,14 +12,12 @@ import SingUp from "./Components/SignUp/SingUp";
 import Login from "./Components/Login/Login";
 import Members from "./Components/Members/Members";
 import Footer from "./Components/Footer/Footer";
-// import AuthContext from "./Components/Context/AuthContext";
 
 
 
 function App() {
   document.title = "Prime University Computer Programming Club";
   return (
-    // <AuthContext>
       <BrowserRouter>
         <Header />
         <Routes>
@@ -37,7 +35,6 @@ function App() {
         </Routes>
         <Footer />
       </BrowserRouter>
-    // </AuthContext>
   );
 }
 

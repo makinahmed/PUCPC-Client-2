@@ -1,6 +1,5 @@
  .carousel-item {
-    /* min-width: 80vw;
-    height: 60%; */
+
  }
 .slider-img {
     max-width:100%;
@@ -40,5 +39,6 @@
  }
  .slider-text {
      margin-top: 3em;
+    top: 30%;
  }   
  }
