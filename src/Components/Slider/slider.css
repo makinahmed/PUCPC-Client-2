@@ -1,0 +1,44 @@
+ .carousel-item {
+    /* min-width: 80vw;
+    height: 60%; */
+ }
+.slider-img {
+    max-width:100%;
+    max-height:100%;
+    filter: brightness(50%);
+    object-fit: contain;
+} 
+.title {
+    font-size: 3rem;
+}
+ .pucpc-slider {
+     position: relative;
+ }
+ .slider-text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 2;
+        color: white;
+     
+
+        
+ }
+
+ .slider-title{
+     text-transform: capitalize;
+     color: rgb(223, 221, 221);
+     font-size: 4.5rem;
+ }
+
+ @media screen and (max-width: 480px) {
+
+     .slider-title{
+         
+     font-size: 1.5rem;
+ }
+ .slider-text {
+     margin-top: 3em;
+ }   
+ }

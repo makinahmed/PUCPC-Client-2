@@ -1,0 +1,13 @@
+.contact-img {
+height: 200px;
+width: 200px;
+}
+.contact-img img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+.chhagol p {
+    line-height: 10px;
+}

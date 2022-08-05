@@ -1,0 +1,18 @@
+.site-navigation li{
+    list-style-type: none;
+    color: white;
+    
+}
+.site-navigation li a {
+    text-decoration: none;
+   color: white;
+
+}
+.site-nav {
+    text-align: left;
+}
+.footer-container {
+    background-color: black;
+    color: white;
+    padding: 50px;
+}
