@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import { useParams } from "react-router-dom";
-import './blkogDetails.css'
+import "./blkogDetails.css";
 
 const BlogDetails = () => {
   let { id } = useParams();
   const [singleBlog, setSingleBlog] = useState([]);
   useEffect(() => {
-    fetch("https://pucpc.herokuapp.com/blog")
+    fetch("https://pucpc-api.herokuapp.com/blog")
       .then((res) => res?.json())
       .then((data) => setSingleBlog(data));
   }, [id]);
-console.log(id);
+  console.log(id);
   const blogItem = singleBlog.filter((item) => item.id === id);
   return (
     <Container className="mt-5">

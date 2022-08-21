@@ -5,7 +5,7 @@ import ClubMembers from "./ClubMembers";
 const ClubMember = () => {
   const [members, setMembers] = useState([]);
   useEffect(() => {
-    fetch("https://pucpc.herokuapp.com/team")
+    fetch("https://pucpc-api.herokuapp.com/team")
       .then((res) => res?.json())
       .then((data) => setMembers(data));
   }, []);

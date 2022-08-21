@@ -2,16 +2,15 @@ import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
 
-
 export default function Members() {
-    const [members, setMembers] = useState([]);
-    
+  const [members, setMembers] = useState([]);
+
   useEffect(() => {
-    fetch("http://localhost:8000/members")
+    fetch("https://pucpc-api.herokuapp.com/members")
       .then((res) => res.json())
       .then((data) => setMembers(data));
   }, []);
-   
+
   return (
     <div className="my-5 mx-auto w-75">
       <h2 className="text-center my-5">List Of Official Members</h2>
@@ -39,5 +38,3 @@ export default function Members() {
     </div>
   );
 }
-
-

@@ -5,7 +5,7 @@ import "./Blog.css";
 const Blog = () => {
   const [blogData, setBlogData] = useState([]);
   useEffect(() => {
-    fetch("https://pucpc.herokuapp.com/blog")
+    fetch("https://pucpc-api.herokuapp.com/blog")
       .then((res) => res.json())
       .then((data) => setBlogData(data));
   }, []);

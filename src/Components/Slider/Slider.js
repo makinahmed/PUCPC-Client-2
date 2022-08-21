@@ -4,13 +4,13 @@ import "./slider.css";
 const Slider = (props) => {
   const [sliderData, setSliderData] = useState([]);
   useEffect(() => {
-    fetch("https://pucpc.herokuapp.com/slider")
+    fetch("https://pucpc-api.herokuapp.com/slider")
       .then((res) => res.json())
       .then((data) => setSliderData(data[0]?.images));
   }, []);
 
   return (
-    <div style={{height: '100%'}}>
+    <div style={{ height: "100%" }}>
       <div className="slider-text text-center">
         <h1 className="slider-title"> Welcome to prime University</h1>
         <h1 className="slider-title"> Computer Programming Club </h1>

@@ -4,7 +4,7 @@ import { Col, Container, Row } from "react-bootstrap";
 const Teachers = () => {
   const [teachers, setTeachers] = useState([]);
   useEffect(() => {
-    fetch("https://pucpc.herokuapp.com/teachers")
+    fetch("https://pucpc-api.herokuapp.com/teachers")
       .then((res) => res.json())
       .then((data) => setTeachers(data));
   }, []);

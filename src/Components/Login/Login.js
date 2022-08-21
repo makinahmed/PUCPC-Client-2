@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import {signInWithEmailAndPassword } from "firebase/auth";
+import { signInWithEmailAndPassword } from "firebase/auth";
 import auth from "../Firebase/firebase.initilize";
 import { useAuthState } from "react-firebase-hooks/auth";
 
 export default function Login() {
   const [loginuser, setloginuser] = useState();
-   const [user] = useAuthState(auth);
+  const [user] = useAuthState(auth);
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -16,12 +16,11 @@ export default function Login() {
     newLoginUser[field] = value;
     setloginuser(newLoginUser);
   };
-   
-   
+
   const handleOnClick = (e) => {
     e.preventDefault();
-     signInWithEmailAndPassword(auth, loginuser.email, loginuser.password);
-    fetch(`http://localhost:8000/login/`, {
+    signInWithEmailAndPassword(auth, loginuser.email, loginuser.password);
+    fetch(`https://pucpc-api.herokuapp.com/login/`, {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -30,14 +29,17 @@ export default function Login() {
     })
       .then((res) => res.json())
       .then((data) => {
-       console.log("");
+        console.log("");
       });
   };
- if (user) {
-   navigate("/home");
- } 
+  if (user) {
+    navigate("/home");
+  }
   return (
-    <div className="d-flex justify-content-center my-5" style={{height: "450px"}}>
+    <div
+      className="d-flex justify-content-center my-5"
+      style={{ height: "450px" }}
+    >
       <div>
         <h2 className="mt-3">Please Login here</h2>
         <form>
@@ -67,10 +69,9 @@ export default function Login() {
             Log In
           </button>
         </form>
-         <p>
+        <p>
           Don't have an account ? <Link to="/signup">Register</Link>
-        </p> 
-        
+        </p>
       </div>
     </div>
   );

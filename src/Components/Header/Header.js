@@ -59,7 +59,7 @@ const Header = () => {
             {user?.email ? (
               <Nav>
                 <Link
-                to="/"
+                  to="/"
                   className=" text-white fs-5 text-decoration-none p-3"
                   onClick={() => signOut(auth)}
                 >
@@ -73,7 +73,7 @@ const Header = () => {
                   to="/signup"
                 >
                   {user?.email}
-                  Sign Up
+                  Registration
                 </Link>
               </Nav>
             )}

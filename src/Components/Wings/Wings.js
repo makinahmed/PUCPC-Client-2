@@ -4,7 +4,7 @@ import "./Wings.css";
 const Wings = () => {
   const [wingsData, setWingsData] = useState([]);
   useEffect(() => {
-    fetch("https://pucpc.herokuapp.com/wing")
+    fetch("https://pucpc-api.herokuapp.com/wing")
       .then((res) => res.json())
       .then((data) => setWingsData(data));
   }, []);
